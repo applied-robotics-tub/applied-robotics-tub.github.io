@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------
 #  VORSTAND (Seite „Über uns“)
-#  Aufgaben entsprechen § 6 Abs. 2 der Satzung.
+#  Aufgaben orientieren sich an § 6 Abs. 2 der Satzung; die technische
+#  Leitung kommt als tatsächliche Aufgabe hinzu und steht nicht dort.
 #
 #  veroeffentlichen: true -> statt des Namens erscheint ein Platzhalter.
 #  Erst auf true setzen, wenn
@@ -17,8 +18,8 @@
   name: "Oskar Endres"
   studium: "Wirtschaftsingenieurwesen (B.Sc.), TU Berlin"
   studium_en: "Industrial Engineering and Management (B.Sc.), TU Berlin"
-  aufgaben: "Vorsitz, Vertretung nach außen, Kontakt zur Universitätsverwaltung"
-  aufgaben_en: "Chair, external representation, contact with the university administration"
+  aufgaben: "Vorsitz und technische Leitung, Vertretung nach außen, Kontakt zur Universitätsverwaltung"
+  aufgaben_en: "Chair and technical lead, external representation, contact with the university administration"
   veroeffentlichen: true
   bild: ""
   bild_alt: ""
