@@ -14,7 +14,7 @@ technologien:
 
 status: "geplant"
 
-reihenfolge: 3
+reihenfolge: 2
 
 titel_en: "Line follower"
 kurzbeschreibung_en: "A small car that follows a black line on the floor: two motors, two infrared sensors, a microcontroller. This is our entry project – built in an afternoon, and that is when the interesting part begins, namely making it faster without sending it off the track. Everyone builds their own, and at the end of the semester we race them against each other."
