@@ -5,6 +5,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- comment -%}
+    Sicherheitsvorgaben. GitHub Pages erlaubt keine eigenen HTTP-Header,
+    deshalb stehen sie hier als Meta-Angabe. frame-ancestors und
+    X-Content-Type-Options wirken so nicht – das geht nur über Header.
+    Achtung: Wird farbschema_umschalter eingeschaltet, kommt ein Skript
+    direkt im Dokument hinzu. Dann muss script-src dessen Hash erlauben,
+    sonst blockiert der Browser den Umschalter.
+  {%- endcomment -%}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <title>{% if page.titel and page.url != "/" %}{{ page.titel }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.beschreibung | default: site.description | strip_html | escape }}">
   {%- if page.noindex %}

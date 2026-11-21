@@ -51,6 +51,8 @@ kramdown:
 exclude:
   - README.md
   - ANLEITUNG.md
+  - DESIGN.md
+  - SOCIAL-MEDIA.md
   - Gemfile
   - Gemfile.lock
   - netlify.toml
