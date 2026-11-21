@@ -21,7 +21,7 @@
 #   rhythmus_en: "every Tuesday"
 #   uhrzeit: "18:00–20:00 Uhr"
 #   ort: "Raum MAR 0.001"
-regelmaessig:
+regelmaessig: {}
 
 # Einzelne Termine. Beispiel:
 #   - datum: 2027-01-13
@@ -31,4 +31,4 @@ regelmaessig:
 #     beschreibung: "Kurze Vorstellung der Projekte, danach offene Runde."
 #     titel_en: "First open meeting"
 #     beschreibung_en: "Short introduction to the projects, then open discussion."
-liste:
+liste: []
