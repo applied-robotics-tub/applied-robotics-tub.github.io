@@ -104,7 +104,8 @@ a:hover { text-decoration-thickness: 4px; }
   display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem;
   padding-block: 1.25rem;
 }
-.wortmarke { display: flex; align-items: baseline; gap: .6rem; text-decoration: none; margin-right: auto; }
+.wortmarke { display: flex; align-items: center; gap: .55rem; text-decoration: none; margin-right: auto; }
+.wortmarke__zeichen { height: 2rem; width: auto; flex: none; }
 .wortmarke__name { font-weight: 700; font-stretch: 80%; font-size: 1.25rem; letter-spacing: -.01em; }
 .wortmarke__status { font-size: .875rem; color: var(--text-leise); }
 
@@ -122,6 +123,7 @@ a:hover { text-decoration-thickness: 4px; }
 @media (max-width: 47.99rem) {
   .kopf__innen { column-gap: 1rem; }
   .wortmarke__name { font-size: 1.125rem; }
+  .wortmarke__zeichen { height: 1.75rem; }
   .nav { order: 3; width: 100%; }
 }
 
