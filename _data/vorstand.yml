@@ -1,0 +1,46 @@
+# ------------------------------------------------------------------
+#  VORSTAND (Seite „Über uns“)
+#  Aufgaben entsprechen § 6 Abs. 2 der Satzung.
+#
+#  veroeffentlichen: true -> statt des Namens erscheint ein Platzhalter.
+#  Erst auf true setzen, wenn
+#    1. die Gründungsversammlung den Vorstand gewählt hat und
+#    2. die Person der Veröffentlichung ihres Namens zugestimmt hat.
+#
+#  bild: optional, z. B. "/assets/bilder/vorstand/name.jpg"
+#  bild_alt: kurze Bildbeschreibung, z. B. "Porträt von Vorname Nachname"
+#  Felder mit _en sind die Texte für die englische Seite.
+# ------------------------------------------------------------------
+
+- funktion: "1. Vorstand"
+  funktion_en: "1st board member"
+  name: "Oskar Endres"
+  studium: "Wirtschaftsingenieurwesen (B.Sc.), TU Berlin"
+  studium_en: "Industrial Engineering and Management (B.Sc.), TU Berlin"
+  aufgaben: "Vorsitz, Vertretung nach außen, Kontakt zur Universitätsverwaltung"
+  aufgaben_en: "Chair, external representation, contact with the university administration"
+  veroeffentlichen: true
+  bild: ""
+  bild_alt: ""
+
+- funktion: "2. Vorstand"
+  funktion_en: "2nd board member"
+  name: "Christian Eisenhardt"
+  studium: "Wirtschaftsingenieurwesen (B.Sc.), TU Berlin"
+  studium_en: "Industrial Engineering and Management (B.Sc.), TU Berlin"
+  aufgaben: "Stellvertretung, Koordination der Projekte und der regelmäßigen Treffen"
+  aufgaben_en: "Deputy chair, coordination of projects and regular meetings"
+  veroeffentlichen: true
+  bild: ""
+  bild_alt: ""
+
+- funktion: "3. Vorstand"
+  funktion_en: "3rd board member"
+  name: "Karl Eisenhardt"
+  studium: "Wirtschaftsingenieurwesen (M.Sc.), TU Berlin"
+  studium_en: "Industrial Engineering and Management (M.Sc.), TU Berlin"
+  aufgaben: "Finanzen, Protokollführung, Mitgliederliste"
+  aufgaben_en: "Finances, minutes, membership list"
+  veroeffentlichen: true
+  bild: ""
+  bild_alt: ""

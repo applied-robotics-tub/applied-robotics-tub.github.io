@@ -1,0 +1,84 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+{%- assign termine = site.data.termine.liste | sort: "datum" -%}
+{%- assign r = site.data.termine.regelmaessig -%}
+{%- assign projekte = site.projekte | sort: "reihenfolge" -%}
+
+<section class="rahmen buehne" aria-labelledby="buehne-titel">
+  <h1 id="buehne-titel" class="anzeige">{{ page.titel_gross }}</h1>
+  <div class="buehne__unten">
+    <div class="buehne__text">
+      <p class="einleitung">{{ page.einleitung }}</p>
+      <div class="aktion">
+        {% include mailbox.html label=page.knopf_mail %}
+        <a class="link-weiter" href="{{ t.pfad_mitmachen | relative_url }}">{{ page.link_mitmachen }}</a>
+      </div>
+    </div>
+    <dl class="steckbrief">
+      {%- for zeile in page.steckbrief %}
+      <div><dt>{{ zeile.bezeichnung }}</dt><dd>{% include text.html t=zeile.wert %}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="rahmen abschnitt" aria-labelledby="treffen-titel">
+  <h2 id="treffen-titel" class="abschnitt__titel">{{ t.naechstes_treffen }}</h2>
+  <div class="abschnitt__inhalt">
+    <ul class="termine" data-termine data-nur-naechster>
+      {%- for termin in termine %}
+      {% include termin.html termin=termin %}
+      {%- endfor %}
+    </ul>
+    <p class="termine__leer" data-termine-leer hidden>{{ t.kein_termin }}</p>
+    {%- if r.rhythmus %}
+    <p class="leise">{{ t.regelmaessig }}: {% include feld.html obj=r f="rhythmus" %}, {% include feld.html obj=r f="uhrzeit" %}, {% include feld.html obj=r f="ort" %}. <a href="{{ t.pfad_mitmachen | relative_url }}#termine">{{ t.alle_termine }}</a></p>
+    {%- endif %}
+    <p>{{ page.treffen_hinweis }} {%- capture mailto -%}{% include mailto.html %}{%- endcapture %} <a href="{{ mailto | strip }}">{{ page.treffen_link }}</a></p>
+  </div>
+</section>
+
+<section class="rahmen abschnitt" aria-labelledby="fuerwen-titel">
+  <h2 id="fuerwen-titel" class="abschnitt__titel">{{ page.fuer_wen.titel }}</h2>
+  <div class="abschnitt__inhalt zweiteilig">
+    <div class="fliesstext fliesstext--gross">
+      {{ page.fuer_wen.text | markdownify }}
+    </div>
+    <div class="nicht">
+      <h3>{{ page.abgrenzung.titel }}</h3>
+      <ul class="liste">
+        {%- for punkt in page.abgrenzung.punkte %}
+        <li>{{ punkt }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="rahmen abschnitt" aria-labelledby="lernen-titel">
+  <h2 id="lernen-titel" class="abschnitt__titel">{{ page.lernen.titel }}</h2>
+  <div class="abschnitt__inhalt">
+    <dl class="zeilen">
+      {%- for bereich in page.lernen.bereiche %}
+      <div><dt>{{ bereich.titel }}</dt><dd>{{ bereich.text }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+{%- if projekte.size > 0 %}
+<section class="rahmen abschnitt abschnitt--breit" aria-labelledby="projekte-titel">
+  <h2 id="projekte-titel" class="abschnitt__titel">{{ page.projekte.titel }}</h2>
+  <div class="abschnitt__inhalt">
+    <ul class="projekte">
+      {%- for projekt in projekte limit: 3 %}
+      {% include projektkarte.html projekt=projekt %}
+      {%- endfor %}
+    </ul>
+    <p><a href="{{ t.pfad_projekte | relative_url }}">{{ page.projekte.link }}</a></p>
+  </div>
+</section>
+{%- endif %}

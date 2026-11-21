@@ -1,0 +1,40 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+<header class="kopf">
+  <div class="rahmen kopf__innen">
+    <a class="wortmarke" href="{{ '/' | relative_url }}">
+      <span class="wortmarke__name">{{ site.title }}</span>
+      <span class="wortmarke__status">{{ t.status }}</span>
+    </a>
+
+    <nav class="nav" aria-label="{{ t.hauptnavigation }}">
+      <ul>
+        {%- for punkt in site.data.navigation[lang] %}
+        <li><a href="{{ punkt.link | relative_url }}"{% if page.url == punkt.link %} aria-current="page"{% endif %}>{{ punkt.titel }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <div class="kopf__werkzeuge">
+      {%- if page.ref %}
+      {%- assign uebersetzungen = site.pages | where: "ref", page.ref | sort: "lang" %}
+      {%- if uebersetzungen.size > 1 %}
+      <ul class="sprachen" aria-label="{{ t.sprache }}">
+        {%- for s in uebersetzungen %}
+        {%- if s.lang == lang %}
+        <li><span aria-current="true" lang="{{ s.lang }}">{{ s.lang | upcase }}</span></li>
+        {%- else %}
+        <li><a href="{{ s.url | relative_url }}" hreflang="{{ s.lang }}" lang="{{ s.lang }}">{% if s.lang == "de" %}<span aria-hidden="true">DE</span><span class="sr-only">Deutsch</span>{% else %}<span aria-hidden="true">EN</span><span class="sr-only">English</span>{% endif %}</a></li>
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {%- endif %}
+      {%- if site.farbschema_umschalter %}
+      <button class="schema-knopf" type="button" data-schema-knopf
+              data-label-hell="{{ t.farbschema_hell }}" data-label-dunkel="{{ t.farbschema_dunkel }}"
+              data-titel-hell="{{ t.farbschema_hell_titel }}" data-titel-dunkel="{{ t.farbschema_dunkel_titel }}" hidden>{{ t.farbschema_hell }}</button>
+      {%- endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign projekte = site.projekte | sort: "reihenfolge" -%}
+<article class="rahmen">
+  <header class="kopfzeile">
+    <h1>{{ page.titel }}</h1>
+    <p class="einleitung">{{ page.einleitung }}</p>
+  </header>
+
+  {%- if projekte.size > 0 %}
+  <ul class="projekte projekte--seite">
+    {%- for projekt in projekte %}
+    {% include projektkarte.html projekt=projekt %}
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+  <div class="abschnitt abschnitt--ohne-titel">
+    <div class="abschnitt__inhalt fliesstext">
+      {{ content }}
+    </div>
+  </div>
+</article>

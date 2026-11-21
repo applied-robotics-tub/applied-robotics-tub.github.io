@@ -1,0 +1,71 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+{%- assign termine = site.data.termine.liste | sort: "datum" -%}
+{%- assign r = site.data.termine.regelmaessig -%}
+<article class="rahmen">
+  <header class="kopfzeile">
+    <h1>{{ page.titel }}</h1>
+    <p class="einleitung">{{ page.einleitung }}</p>
+    {% include mailbox.html label=page.knopf_mail %}
+  </header>
+
+  <section class="abschnitt" aria-labelledby="schritte-titel">
+    <h2 id="schritte-titel" class="abschnitt__titel">{{ page.schritte_titel }}</h2>
+    <div class="abschnitt__inhalt">
+      <ol class="schritte">
+        {%- for schritt in page.schritte %}
+        <li>
+          <h3>{{ schritt.titel }}</h3>
+          <p>{% include text.html t=schritt.text %}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="mitbringen-titel">
+    <h2 id="mitbringen-titel" class="abschnitt__titel">{{ page.mitbringen.titel }}</h2>
+    <div class="abschnitt__inhalt">
+      <p class="anzeige anzeige--mittel">{{ page.mitbringen.antwort }}</p>
+      <p>{{ page.mitbringen.text }}</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="termine" aria-labelledby="termine-titel">
+    <h2 id="termine-titel" class="abschnitt__titel">{{ t.termine }}</h2>
+    <div class="abschnitt__inhalt">
+      {%- if r.rhythmus %}
+      <p>{{ t.regelmaessig }}: {% include feld.html obj=r f="rhythmus" %}, {% include feld.html obj=r f="uhrzeit" %}, {% include feld.html obj=r f="ort" %}.</p>
+      {%- endif %}
+      <ul class="termine" data-termine>
+        {%- for termin in termine %}
+        {% include termin.html termin=termin %}
+        {%- endfor %}
+      </ul>
+      <p class="termine__leer" data-termine-leer hidden>{{ t.kein_termin }}</p>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="fragen-titel">
+    <h2 id="fragen-titel" class="abschnitt__titel">{{ t.haeufige_fragen }}</h2>
+    <div class="abschnitt__inhalt fragen">
+      {%- for frage in page.fragen %}
+      <details>
+        <summary>{{ frage.frage }}</summary>
+        <div class="fliesstext">{% if frage.antwort contains "PLATZHALTER" %}<p><mark class="ph">{{ frage.antwort }}</mark></p>{% else %}{{ frage.antwort | markdownify }}{% endif %}</div>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="kontakt-titel">
+    <h2 id="kontakt-titel" class="abschnitt__titel">{{ page.abschluss.titel }}</h2>
+    <div class="abschnitt__inhalt">
+      <p>{{ page.abschluss.text }}</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,18 @@
+{%- comment -%}
+  Gibt ein Feld in der Sprache der aktuellen Seite aus.
+  Auf englischen Seiten wird "feldname_en" genommen, wenn es gefüllt ist,
+  sonst der deutsche Text. Texte mit PLATZHALTER werden markiert.
+  Aufruf: {% include feld.html obj=termin f="titel" %}
+{%- endcomment -%}
+{%- assign _lang = page.lang | default: site.lang -%}
+{%- assign _wert = nil -%}
+{%- if _lang != "de" -%}
+  {%- assign _key = include.f | append: "_" | append: _lang -%}
+  {%- assign _wert = include.obj[_key] -%}
+{%- endif -%}
+{%- if _wert == nil or _wert == "" -%}{%- assign _wert = include.obj[include.f] -%}{%- endif -%}
+{%- if include.roh -%}
+{{ _wert }}
+{%- else -%}
+{% include text.html t=_wert %}
+{%- endif -%}

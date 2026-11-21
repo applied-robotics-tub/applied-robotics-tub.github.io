@@ -1,0 +1,26 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+{%- assign termin = include.termin -%}
+{%- assign tage = t.wochentage | split: "," -%}
+{%- assign monate = t.monate | split: "," -%}
+{%- assign tag_nr = termin.datum | date: "%w" | plus: 0 -%}
+{%- assign monat_nr = termin.datum | date: "%-m" | minus: 1 -%}
+<li class="termin" data-termin="{{ termin.datum | date: '%Y-%m-%d' }}">
+  <time class="termin__datum" datetime="{{ termin.datum | date: '%Y-%m-%d' }}">
+    {%- if termin.platzhalter -%}
+      <mark class="ph">PLATZHALTER: Datum</mark>
+    {%- elsif lang == "de" -%}
+      {{ tage[tag_nr] }} {{ termin.datum | date: "%-d" }}. {{ monate[monat_nr] }}
+    {%- else -%}
+      {{ tage[tag_nr] }} {{ termin.datum | date: "%-d" }} {{ monate[monat_nr] }}
+    {%- endif -%}
+  </time>
+  <p class="termin__zeit"><span class="sr-only">{{ t.uhrzeit }}: </span>{% include feld.html obj=termin f="uhrzeit" %}</p>
+  <p class="termin__ort"><span class="sr-only">{{ t.ort }}: </span>{% include feld.html obj=termin f="ort" %}</p>
+  <div class="termin__was">
+    <h3>{% include feld.html obj=termin f="titel" %}</h3>
+    {%- if termin.beschreibung %}
+    <p>{% include feld.html obj=termin f="beschreibung" %}</p>
+    {%- endif %}
+  </div>
+</li>

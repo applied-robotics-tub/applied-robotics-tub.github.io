@@ -1,0 +1,58 @@
+# ------------------------------------------------------------------
+#  Grundeinstellungen der Website
+#  Texte in Anführungszeichen dürfen frei geändert werden.
+#  Nach einer Änderung an DIESER Datei baut GitHub die Seite neu
+#  (dauert 1–2 Minuten).
+# ------------------------------------------------------------------
+
+title: "Applied Robotics TU Berlin"
+kurzname: "Applied Robotics"
+description: "Studentische Initiative in Berlin: Wir bauen und programmieren gemeinsam Roboter für den Alltag. Offen für alle, auch ohne Vorerfahrung."
+
+# Kontakt – wird auf allen Seiten verwendet
+email: "appliedrobotics.tub@gmail.com"
+
+# Status („in Gründung“), Hinweis im Fuß und die vorausgefüllte
+# Mitmach-Mail stehen je Sprache in _data/texte.yml.
+
+# Umschalter Hell/Dunkel oben rechts anzeigen?
+# false = Seite ist immer dunkel, kein Umschalter (aktueller Stand).
+# true  = Besucher können auf Hell umschalten.
+farbschema_umschalter: false
+
+# Hauptsprache
+lang: de
+
+# Adresse der fertigen Seite (nach dem ersten Veröffentlichen eintragen)
+# Beispiel GitHub Pages: url: "https://applied-robotics-tub.github.io"
+url: ""
+baseurl: ""
+
+# ------------------------------------------------------------------
+#  Ab hier technische Einstellungen – nur ändern, wenn nötig.
+# ------------------------------------------------------------------
+
+collections:
+  projekte:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: de
+      layout: seite
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+
+exclude:
+  - README.md
+  - ANLEITUNG.md
+  - Gemfile
+  - Gemfile.lock
+  - netlify.toml
+  - vendor
+  - .bundle

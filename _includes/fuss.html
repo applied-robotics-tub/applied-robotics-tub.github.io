@@ -1,0 +1,23 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+<footer class="fuss">
+  <div class="rahmen fuss__innen">
+    <div class="fuss__block">
+      <p class="fuss__name">{{ site.title }}</p>
+      <p>{{ t.status_text }}</p>
+      <p>{{ t.haftungshinweis }}</p>
+    </div>
+    <div class="fuss__block">
+      <h2 class="fuss__titel">{{ t.kontakt }}</h2>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+    <nav class="fuss__block" aria-label="{{ t.rechtliches }}">
+      <h2 class="fuss__titel">{{ t.rechtliches }}</h2>
+      <ul class="fuss__liste">
+        {%- for punkt in site.data.navigation.fuss[lang] %}
+        <li><a href="{{ punkt.link | relative_url }}"{% if punkt.sprache %} hreflang="{{ punkt.sprache }}"{% endif %}{% if page.url == punkt.link %} aria-current="page"{% endif %}>{{ punkt.titel }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,332 @@
+/* ==================================================================
+   Applied Robotics TU Berlin – Stylesheet
+   Gestaltungsregeln: siehe DESIGN.md
+   Dunkel ist Standard; Hell über [data-theme="light"].
+   ================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-variabel.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --schrift: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  --hintergrund: #141412;
+  --flaeche: #1d1c19;
+  --linie: #33322c;
+  --text: #ebeae3;
+  --text-leise: #a29f93;
+  --signal: #f2c300;
+  --auf-signal: #171611;
+  --ph: #ff7a93;
+  --ph-hg: rgba(255, 122, 147, .1);
+
+  --rand: 1rem;
+  --breite: 78rem;
+  --abstand-abschnitt: 3.5rem;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --hintergrund: #f4f4f1;
+  --flaeche: #e9e8e2;
+  --linie: #cfcdc3;
+  --text: #171611;
+  --text-leise: #5a584e;
+  --ph: #b0123a;
+  --ph-hg: rgba(176, 18, 58, .07);
+  color-scheme: light;
+}
+
+@media (min-width: 40rem) { :root { --rand: 2rem; --abstand-abschnitt: 5rem; } }
+@media (min-width: 64rem) { :root { --rand: 3rem; --abstand-abschnitt: 7rem; } }
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--hintergrund);
+  color: var(--text);
+  font-family: var(--schrift);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-stretch: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; outline: none; }
+img { max-width: 100%; height: auto; display: block; }
+p, ul, ol, dl { margin: 0 0 1rem; }
+
+h1, h2, .anzeige {
+  font-stretch: 72%;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.01em;
+  margin: 0 0 1.5rem;
+}
+h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); }
+h2 { font-size: clamp(1.625rem, 3vw, 2.125rem); }
+h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; margin: 0 0 .25rem; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2em;
+}
+a:hover { text-decoration-thickness: 4px; }
+:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: var(--rand); top: -10rem; z-index: 10;
+  background: var(--signal); color: var(--auf-signal); padding: .5rem 1rem; text-decoration: none;
+}
+.skip-link:focus { top: .5rem; }
+
+.rahmen { width: 100%; max-width: var(--breite); margin-inline: auto; padding-inline: var(--rand); }
+.leise { color: var(--text-leise); }
+
+/* ---------- Kopf ---------- */
+.kopf__innen {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem;
+  padding-block: 1.25rem;
+}
+.wortmarke { display: flex; align-items: baseline; gap: .6rem; text-decoration: none; margin-right: auto; }
+.wortmarke__name { font-weight: 700; font-stretch: 80%; font-size: 1.25rem; letter-spacing: -.01em; }
+.wortmarke__status { font-size: .875rem; color: var(--text-leise); }
+
+.nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; margin: 0; padding: 0; }
+.nav a { text-decoration: none; display: inline-block; padding-block: .25rem; }
+.nav a:hover { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 2px; }
+.nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; text-underline-offset: .45em; }
+
+.schema-knopf {
+  font: inherit; font-size: .875rem; color: var(--text-leise);
+  background: none; border: 0; padding: .25rem 0; cursor: pointer;
+}
+.schema-knopf:hover { color: var(--text); }
+
+@media (max-width: 47.99rem) {
+  .kopf__innen { column-gap: 1rem; }
+  .wortmarke__name { font-size: 1.125rem; }
+  .nav { order: 3; width: 100%; }
+}
+
+/* ---------- Bühne (Startseite oben) ---------- */
+.buehne { padding-block: clamp(3rem, 10vw, 7rem) 0; }
+.anzeige {
+  font-size: clamp(2.75rem, 8.5vw, 5.5rem);
+  line-height: .95;
+  max-width: 14ch;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.anzeige--mittel { font-size: clamp(2.5rem, 6vw, 4rem); max-width: none; margin-bottom: 1rem; }
+.buehne__unten { display: grid; gap: 2.5rem; }
+@media (min-width: 56rem) {
+  .buehne__unten { grid-template-columns: repeat(12, 1fr); gap: 2rem; }
+  .buehne__text { grid-column: 1 / 8; }
+  .steckbrief { grid-column: 9 / 13; }
+}
+.einleitung { font-size: clamp(1.125rem, 2vw, 1.3125rem); line-height: 1.5; max-width: 36em; }
+
+.aktion { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1rem 2rem; margin-top: 2rem; }
+.link-weiter { padding-top: .8rem; }
+
+.steckbrief { margin: 0; font-size: .9375rem; border-top: 2px solid var(--text); }
+.steckbrief div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .5rem 0; border-bottom: 1px solid var(--linie); }
+.steckbrief dt { color: var(--text-leise); }
+.steckbrief dd { margin: 0; }
+
+/* ---------- Knopf und Mail ---------- */
+.knopf {
+  display: inline-block; padding: .8rem 1.25rem;
+  background: var(--signal); color: var(--auf-signal);
+  font-weight: 600; text-decoration: none; line-height: 1.2;
+  border-radius: 2px;
+  transition: transform 120ms ease-out;
+}
+.knopf:hover { text-decoration: none; }
+.knopf:active { transform: translateY(1px); }
+.mailbox { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; }
+.mailbox__adresse { margin: 0; font-size: .875rem; color: var(--text-leise); display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.knopf-text {
+  font: inherit; color: var(--text-leise); background: none; border: 0; padding: 0; cursor: pointer;
+  text-decoration: underline; text-decoration-color: var(--linie); text-underline-offset: .2em;
+}
+.knopf-text:hover { color: var(--text); text-decoration-color: var(--signal); }
+
+/* ---------- Abschnitte (Datenblatt-Raster) ---------- */
+.abschnitt { padding-top: var(--abstand-abschnitt); }
+.abschnitt__titel {
+  border-top: 2px solid var(--text);
+  padding-top: .75rem;
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+}
+.abschnitt__inhalt > :last-child { margin-bottom: 0; }
+@media (min-width: 56rem) {
+  .abschnitt { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 2rem; }
+  .abschnitt__titel { grid-column: 1 / 4; margin: 0; }
+  .abschnitt__inhalt { grid-column: 4 / 13; border-top: 1px solid var(--linie); padding-top: 1rem; }
+  .abschnitt--ohne-titel .abschnitt__inhalt { grid-column: 1 / 10; border-top: 0; padding-top: 0; }
+}
+
+.abschnitt--ohne-titel { padding-top: 0; }
+.projekte--seite { margin-bottom: var(--abstand-abschnitt); }
+.kopfzeile { padding-block: clamp(3rem, 8vw, 5.5rem) clamp(2rem, 5vw, 3.5rem); }
+.kopfzeile .einleitung { margin-bottom: 2rem; }
+.kopfzeile .einleitung:last-child { margin-bottom: 0; }
+
+.fliesstext { max-width: 40rem; }
+.fliesstext--gross { font-size: 1.1875rem; }
+.fliesstext h2 {
+  font-size: clamp(1.375rem, 2.4vw, 1.625rem);
+  margin: 2.75rem 0 .75rem;
+}
+.fliesstext > h2:first-child { margin-top: 0; }
+.fliesstext h3 { margin-top: 1.75rem; }
+.fliesstext ul { padding-left: 1.1rem; }
+.fliesstext li + li { margin-top: .4rem; }
+.fliesstext li::marker { color: var(--text-leise); }
+
+/* Zeilen: Begriff | Erklärung */
+.zeilen { margin: 0; }
+.zeilen div:first-child { border-top: 0; padding-top: 0; }
+.zeilen div { display: grid; gap: .25rem 2rem; padding: .875rem 0; border-top: 1px solid var(--linie); }
+.zeilen dt { font-weight: 600; }
+.zeilen dd { margin: 0; color: var(--text-leise); }
+@media (min-width: 40rem) { .zeilen div { grid-template-columns: 11rem 1fr; } }
+
+.abschnitt__inhalt.fliesstext { max-width: none; }
+.abschnitt__inhalt.fliesstext > * { max-width: 40rem; }
+.zweiteilig { display: grid; gap: 2.5rem 3rem; }
+.zweiteilig .fliesstext { max-width: 36rem; }
+@media (min-width: 72rem) { .zweiteilig { grid-template-columns: 3fr 2fr; } }
+.nicht h3 { font-size: 1rem; margin-bottom: .75rem; }
+.nicht .liste li { font-size: .9375rem; color: var(--text-leise); }
+.liste { list-style: none; padding: 0; }
+.liste li { padding: .75rem 0; border-bottom: 1px solid var(--linie); }
+.liste li:first-child { padding-top: 0; }
+
+/* ---------- Termine (tabellarisch) ---------- */
+.termine { list-style: none; padding: 0; margin: 0 0 1rem; }
+.termin {
+  display: grid; gap: .125rem 1.5rem; padding: .875rem 0;
+  border-bottom: 1px solid var(--linie);
+  font-variant-numeric: tabular-nums;
+}
+.termin:first-child { padding-top: 0; }
+.termin[hidden] { display: none; }
+.termin p { margin: 0; }
+.termin__datum { font-weight: 600; }
+.termin__zeit, .termin__ort { color: var(--text-leise); }
+.termin__was h3 { font-size: 1.0625rem; }
+.termin__was p { color: var(--text-leise); }
+@media (min-width: 40rem) {
+  .termin { grid-template-columns: 9rem 8rem 1fr; }
+  .termin__was { grid-column: 1 / -1; }
+}
+@media (min-width: 72rem) {
+  .termin { grid-template-columns: 9rem 8rem 12rem 1fr; }
+  .termin__was { grid-column: auto; }
+}
+
+/* ---------- Projekte (einzige Karten) ---------- */
+.projekte { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: 3rem 2rem; }
+@media (min-width: 40rem) { .projekte { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 72rem) { .projekte { grid-template-columns: repeat(3, 1fr); } }
+.projekt__bild { aspect-ratio: 3 / 2; background: var(--flaeche); margin-bottom: 1rem; }
+.projekt__bild img { width: 100%; height: 100%; object-fit: cover; }
+.projekt__bild-ph {
+  height: 100%; margin: 0; display: grid; place-items: center;
+  color: var(--text-leise); font-size: .875rem;
+  border: 1px dashed var(--linie);
+}
+.projekt__titel { font-size: 1.1875rem; }
+.projekt__status { font-size: .875rem; color: var(--text-leise); margin-bottom: .5rem; }
+.projekt__text { margin-bottom: .75rem; }
+.projekt__technik { font-size: .875rem; color: var(--text-leise); padding-top: .5rem; border-top: 1px solid var(--linie); margin: 0; }
+
+/* ---------- Vorstand (Zeilen) ---------- */
+.personen { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.person { display: grid; gap: .25rem 2rem; padding: 1rem 0; border-top: 1px solid var(--linie); }
+.person p { margin: 0; }
+.person__funktion { color: var(--text-leise); }
+.person__bild { width: 5rem; height: 5rem; object-fit: cover; margin-bottom: .5rem; }
+.person__studium { font-size: .9375rem; color: var(--text-leise); }
+.person__aufgaben { color: var(--text-leise); }
+@media (min-width: 48rem) { .person { grid-template-columns: 8rem 1fr 1fr; } }
+
+/* ---------- Schritte (echte Reihenfolge) ---------- */
+.schritte { list-style: none; padding: 0; margin: 0; counter-reset: schritt; }
+.schritte li {
+  counter-increment: schritt;
+  display: grid; grid-template-columns: 2.5rem 1fr; column-gap: 1rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--linie);
+}
+.schritte li:first-child { padding-top: 0; }
+.schritte li::before {
+  content: counter(schritt);
+  grid-row: span 2;
+  font-size: 2rem; font-weight: 700; font-stretch: 72%; line-height: 1;
+  color: var(--text-leise);
+}
+.schritte p { margin: 0; color: var(--text-leise); }
+
+/* ---------- Fragen ---------- */
+.fragen details { border-bottom: 1px solid var(--linie); }
+.fragen details:first-child summary { padding-top: 0; }
+.fragen summary { cursor: pointer; padding: .875rem 0; font-weight: 600; }
+.fragen summary::marker { color: var(--text-leise); }
+.fragen details > div { padding: 0 0 1rem 1.1rem; color: var(--text-leise); }
+.fragen details > div p:last-child { margin-bottom: 0; }
+
+/* ---------- Platzhalter ---------- */
+mark.ph, .platzhalter {
+  background: var(--ph-hg); color: var(--ph);
+  outline: 1px dashed var(--ph); outline-offset: 1px;
+}
+mark.ph { padding: 0 .2em; }
+.platzhalter { padding: .75rem 1rem; }
+
+/* ---------- Fuß ---------- */
+.fuss { margin-top: var(--abstand-abschnitt); border-top: 1px solid var(--linie); font-size: .875rem; color: var(--text-leise); }
+.fuss__innen { display: grid; gap: 1.5rem 2rem; padding-block: 2rem 3rem; }
+@media (min-width: 56rem) {
+  .fuss__innen { grid-template-columns: repeat(12, 1fr); }
+  .fuss__block:nth-child(1) { grid-column: 1 / 7; }
+  .fuss__block:nth-child(2) { grid-column: 7 / 10; }
+  .fuss__block:nth-child(3) { grid-column: 10 / 13; }
+}
+.fuss p { margin-bottom: .375rem; }
+.fuss__name { color: var(--text); font-weight: 600; }
+.fuss__titel { font-size: .875rem; font-weight: 600; font-stretch: 100%; color: var(--text); margin: 0 0 .375rem; line-height: 1.5; }
+.fuss__liste { list-style: none; padding: 0; margin: 0; }
+.fuss a { color: var(--text-leise); }
+.fuss a:hover { color: var(--text); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media print {
+  .kopf nav, .schema-knopf, .skip-link, .knopf-text { display: none; }
+  :root { --hintergrund: #fff; --text: #000; --text-leise: #333; }
+}
+
+/* ---------- Sprachwahl und Farbschema im Kopf ---------- */
+.kopf__werkzeuge { display: flex; align-items: center; gap: 1rem; font-size: .875rem; }
+.sprachen { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; color: var(--text-leise); }
+.sprachen li + li::before { content: "/"; margin-right: .5rem; color: var(--linie); }
+.sprachen [aria-current] { color: var(--text); font-weight: 600; }
+.sprachen a { color: var(--text-leise); text-decoration: none; }
+.sprachen a:hover { color: var(--text); text-decoration: underline; text-decoration-color: var(--signal); }

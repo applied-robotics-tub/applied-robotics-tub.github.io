@@ -1,0 +1,3 @@
+{%- assign _lang = page.lang | default: site.lang -%}
+{%- assign _t = site.data.texte[_lang] -%}
+mailto:{{ site.email }}?subject={{ _t.mail_betreff | cgi_escape | replace: "+", "%20" }}&amp;body={{ _t.mail_text | cgi_escape | replace: "+", "%20" }}

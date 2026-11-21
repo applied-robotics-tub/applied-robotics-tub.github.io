@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="rahmen">
+  <header class="kopfzeile">
+    <h1>{{ page.titel }}</h1>
+    {%- if page.einleitung %}
+    <p class="einleitung">{% include text.html t=page.einleitung %}</p>
+    {%- endif %}
+  </header>
+  <div class="abschnitt abschnitt--ohne-titel">
+    <div class="abschnitt__inhalt fliesstext">
+      {{ content }}
+    </div>
+  </div>
+</article>

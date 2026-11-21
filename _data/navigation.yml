@@ -1,0 +1,37 @@
+# Menüpunkte oben auf jeder Seite, je Sprache.
+
+de:
+  - titel: "Start"
+    link: "/"
+  - titel: "Über uns"
+    link: "/ueber-uns/"
+  - titel: "Projekte"
+    link: "/projekte/"
+  - titel: "Mitmachen"
+    link: "/mitmachen/"
+
+en:
+  - titel: "Home"
+    link: "/en/"
+  - titel: "About"
+    link: "/en/about/"
+  - titel: "Projects"
+    link: "/en/projects/"
+  - titel: "Join"
+    link: "/en/join/"
+
+# Fußbereich. Impressum und Datenschutzerklärung gibt es nur auf Deutsch
+# (rechtlich maßgeblich); die englische Seite verlinkt darauf.
+fuss:
+  de:
+    - titel: "Impressum"
+      link: "/impressum/"
+    - titel: "Datenschutz"
+      link: "/datenschutz/"
+  en:
+    - titel: "Legal notice (German)"
+      link: "/impressum/"
+      sprache: de
+    - titel: "Privacy policy (German)"
+      link: "/datenschutz/"
+      sprache: de

@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+<article class="rahmen">
+  <header class="kopfzeile">
+    <h1>{{ page.titel }}</h1>
+    <p class="einleitung">{{ page.einleitung }}</p>
+  </header>
+
+  <div class="abschnitt abschnitt--ohne-titel">
+    <div class="abschnitt__inhalt fliesstext">
+      {{ content }}
+    </div>
+  </div>
+
+  <section class="abschnitt" aria-labelledby="vorstand-titel">
+    <h2 id="vorstand-titel" class="abschnitt__titel">{{ t.vorstand }}</h2>
+    <div class="abschnitt__inhalt">
+      <p>{{ page.vorstand_text }}</p>
+      <ul class="personen">
+        {%- for person in site.data.vorstand %}
+        <li class="person">
+          <p class="person__funktion">{% include feld.html obj=person f="funktion" %}</p>
+          <div class="person__wer">
+            {%- if person.veroeffentlichen and person.bild != "" %}
+            <img class="person__bild" src="{{ person.bild | relative_url }}" alt="{{ person.bild_alt | escape }}" width="160" height="160" loading="lazy">
+            {%- endif %}
+            <h3 class="person__name">
+              {%- if person.veroeffentlichen -%}
+                {{ person.name }}
+              {%- else -%}
+                <mark class="ph">{{ t.vorstand_platzhalter }}</mark>
+              {%- endif -%}
+            </h3>
+            {%- if person.veroeffentlichen %}
+            <p class="person__studium">{% include feld.html obj=person f="studium" %}</p>
+            {%- endif %}
+          </div>
+          <p class="person__aufgaben">{% include feld.html obj=person f="aufgaben" %}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="partner-titel">
+    <h2 id="partner-titel" class="abschnitt__titel">{{ page.partner.titel }}</h2>
+    <div class="abschnitt__inhalt">
+      <div class="fliesstext">{{ page.partner.text | markdownify }}</div>
+      {% include mailbox.html label=page.partner.knopf %}
+    </div>
+  </section>
+</article>

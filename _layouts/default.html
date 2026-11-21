@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.titel and page.url != "/" %}{{ page.titel }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.beschreibung | default: site.description | strip_html | escape }}">
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <meta name="color-scheme" content="{% if site.farbschema_umschalter %}dark light{% else %}dark{% endif %}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/assets/bilder/favicon.svg' | relative_url }}" type="image/svg+xml">
+  {%- if page.ref %}
+  {%- assign alternativen = site.pages | where: "ref", page.ref %}
+  {%- if alternativen.size > 1 %}
+  {%- for a in alternativen %}
+  <link rel="alternate" hreflang="{{ a.lang }}" href="{{ a.url | absolute_url }}">
+  {%- endfor %}
+  {%- endif %}
+  {%- endif %}
+  <link rel="preload" href="{{ '/assets/fonts/archivo-variabel.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {%- if site.farbschema_umschalter %}
+  <script>
+    /* Standard ist dunkel. Gespeicherte Wahl „hell“ vor dem ersten Zeichnen setzen. */
+    try { if (localStorage.getItem("farbschema") === "hell") document.documentElement.dataset.theme = "light"; } catch (e) {}
+  </script>
+  {%- endif %}
+  <script src="{{ '/assets/js/seite.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">{{ t.zum_inhalt }}</a>
+
+  {% include kopf.html %}
+
+  <main id="inhalt" tabindex="-1">
+    {{ content }}
+  </main>
+
+  {% include fuss.html %}
+</body>
+</html>

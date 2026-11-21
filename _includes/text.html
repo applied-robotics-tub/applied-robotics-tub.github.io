@@ -1,0 +1,9 @@
+{%- comment -%}
+  Gibt einen Text aus. Enthält er "PLATZHALTER", wird er sichtbar markiert.
+  Aufruf: {% include text.html t=variable %}
+{%- endcomment -%}
+{%- if include.t contains "PLATZHALTER" -%}
+<mark class="ph">{{ include.t }}</mark>
+{%- else -%}
+{{ include.t }}
+{%- endif -%}

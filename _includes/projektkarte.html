@@ -1,0 +1,18 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+{%- assign p = include.projekt -%}
+<li class="projekt">
+  <div class="projekt__bild">
+    {%- if p.bild and p.bild != "" %}
+    <img src="{{ '/assets/bilder/projekte/' | append: p.bild | relative_url }}" alt="{% include feld.html obj=p f="bild_alt" roh=true %}" width="1200" height="800" loading="lazy">
+    {%- else %}
+    <p class="projekt__bild-ph">{{ t.projektbild_folgt }}</p>
+    {%- endif %}
+  </div>
+  <h3 class="projekt__titel">{% include feld.html obj=p f="titel" %}</h3>
+  <p class="projekt__status">{% include feld.html obj=p f="status" %}</p>
+  <p class="projekt__text">{% include feld.html obj=p f="kurzbeschreibung" %}</p>
+  {%- if p.technologien and p.technologien.size > 0 %}
+  <p class="projekt__technik"><span class="sr-only">{{ t.technologien }}: </span>{{ p.technologien | join: " · " }}</p>
+  {%- endif %}
+</li>

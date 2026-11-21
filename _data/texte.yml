@@ -1,0 +1,99 @@
+# ------------------------------------------------------------------
+#  TEXTE, DIE AUF VIELEN SEITEN VORKOMMEN – je Sprache
+#  de: Deutsch, en: Englisch. Bei Änderungen beide Blöcke anpassen.
+# ------------------------------------------------------------------
+
+de:
+  # Status der Vereinigung. Erst nach der Eintragung bei der TU Berlin ändern!
+  status: "in Gründung"
+  status_text: "Studentische Vereinigung in Gründung. Die Registrierung an der TU Berlin läuft."
+  # Hinweis im Fußbereich jeder Seite. Bitte nicht entfernen.
+  haftungshinweis: "Applied Robotics TU Berlin ist eine studentische Initiative und keine Einrichtung der Technischen Universität Berlin."
+
+  # Vorausgefüllter Betreff und Text für die Mitmach-Mail
+  mail_betreff: "Mitmachen bei Applied Robotics"
+  mail_text: |
+    Hallo Applied Robotics,
+
+    ich würde gerne beim nächsten Treffen vorbeikommen.
+
+    Name:
+    Hochschule und Studiengang:
+    Vorerfahrung (gerne auch „keine“):
+
+    Viele Grüße
+
+  pfad_mitmachen: "/mitmachen/"
+  pfad_projekte: "/projekte/"
+  zum_inhalt: "Zum Inhalt springen"
+  hauptnavigation: "Hauptnavigation"
+  sprache: "Sprache"
+  farbschema_hell: "Hell"
+  farbschema_dunkel: "Dunkel"
+  farbschema_hell_titel: "Helles Design einschalten"
+  farbschema_dunkel_titel: "Dunkles Design einschalten"
+  mail_schreiben: "Mail schreiben"
+  adresse_kopieren: "Adresse kopieren"
+  kopiert: "Kopiert"
+  naechstes_treffen: "Nächstes Treffen"
+  termine: "Termine"
+  regelmaessig: "Regelmäßig"
+  alle_termine: "Alle Termine"
+  kein_termin: "Der nächste Termin steht noch nicht fest. Schreib uns, dann sagen wir dir Bescheid."
+  uhrzeit: "Uhrzeit"
+  ort: "Ort"
+  wochentage: "So.,Mo.,Di.,Mi.,Do.,Fr.,Sa."
+  monate: "Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember"
+  technologien: "Technologien"
+  projektbild_folgt: "Projektbild folgt"
+  vorstand: "Vorstand"
+  vorstand_platzhalter: "PLATZHALTER: Name (nach Wahl und Einverständnis)"
+  haeufige_fragen: "Häufige Fragen"
+  kontakt: "Kontakt"
+  rechtliches: "Rechtliches"
+
+en:
+  status: "in formation"
+  status_text: "Student association in formation. Registration at TU Berlin is in progress."
+  haftungshinweis: "Applied Robotics TU Berlin is a student initiative and not an institution of Technische Universität Berlin."
+
+  mail_betreff: "Joining Applied Robotics"
+  mail_text: |
+    Hi Applied Robotics,
+
+    I'd like to come to your next meeting.
+
+    Name:
+    University and programme:
+    Prior experience (“none” is fine):
+
+    Best regards
+
+  pfad_mitmachen: "/en/join/"
+  pfad_projekte: "/en/projects/"
+  zum_inhalt: "Skip to content"
+  hauptnavigation: "Main navigation"
+  sprache: "Language"
+  farbschema_hell: "Light"
+  farbschema_dunkel: "Dark"
+  farbschema_hell_titel: "Switch to light theme"
+  farbschema_dunkel_titel: "Switch to dark theme"
+  mail_schreiben: "Write us an email"
+  adresse_kopieren: "Copy address"
+  kopiert: "Copied"
+  naechstes_treffen: "Next meeting"
+  termine: "Dates"
+  regelmaessig: "Regular meetings"
+  alle_termine: "All dates"
+  kein_termin: "The next date hasn't been set yet. Write to us and we'll let you know."
+  uhrzeit: "Time"
+  ort: "Place"
+  wochentage: "Sun,Mon,Tue,Wed,Thu,Fri,Sat"
+  monate: "January,February,March,April,May,June,July,August,September,October,November,December"
+  technologien: "Technologies"
+  projektbild_folgt: "Project photo to follow"
+  vorstand: "Board"
+  vorstand_platzhalter: "PLATZHALTER: Name (after election and consent)"
+  haeufige_fragen: "Frequently asked questions"
+  kontakt: "Contact"
+  rechtliches: "Legal"

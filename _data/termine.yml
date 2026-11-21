@@ -1,0 +1,34 @@
+# ------------------------------------------------------------------
+#  TERMINE
+#  Jeder Termin beginnt mit einem Strich "- datum:".
+#  Datum immer im Format JJJJ-MM-TT (z. B. 2026-11-24).
+#  Vergangene Termine blendet die Seite automatisch aus,
+#  sie können trotzdem gelegentlich gelöscht werden.
+#  Der früheste kommende Termin erscheint auf der Startseite.
+#
+#  Englische Seite: titel_en, beschreibung_en (und bei Bedarf uhrzeit_en,
+#  ort_en) ergänzen. Fehlen sie, steht dort der deutsche Text.
+#
+#  platzhalter: true  -> Termin wird als Platzhalter markiert angezeigt.
+#  Bei echten Terminen die Zeile "platzhalter: true" löschen.
+# ------------------------------------------------------------------
+
+# Regelmäßiges Treffen (steht auf Startseite und Mitmachen-Seite)
+# Sobald Rhythmus, Uhrzeit und Raum feststehen, hier eintragen –
+# dann erscheint die Zeile „Regelmäßig: ...“ automatisch wieder.
+# Beispiel:
+#   rhythmus: "jeden Dienstag"
+#   rhythmus_en: "every Tuesday"
+#   uhrzeit: "18:00–20:00 Uhr"
+#   ort: "Raum MAR 0.001"
+regelmaessig:
+
+# Einzelne Termine. Beispiel:
+#   - datum: 2027-01-13
+#     uhrzeit: "18:00 Uhr"
+#     titel: "Erstes offenes Treffen"
+#     ort: "Raum MAR 0.001"
+#     beschreibung: "Kurze Vorstellung der Projekte, danach offene Runde."
+#     titel_en: "First open meeting"
+#     beschreibung_en: "Short introduction to the projects, then open discussion."
+liste:

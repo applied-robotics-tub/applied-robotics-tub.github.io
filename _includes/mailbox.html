@@ -1,0 +1,11 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.texte[lang] -%}
+{%- capture mailto -%}{% include mailto.html %}{%- endcapture -%}
+<div class="mailbox">
+  <a class="knopf knopf--primaer" href="{{ mailto | strip }}">{{ include.label | default: t.mail_schreiben }}</a>
+  <p class="mailbox__adresse">
+    <span>{{ site.email }}</span>
+    <button class="knopf-text" type="button" data-kopieren="{{ site.email }}" data-label-kopiert="{{ t.kopiert }}" hidden>{{ t.adresse_kopieren }}</button>
+    <span class="sr-only" role="status" data-kopieren-status></span>
+  </p>
+</div>
