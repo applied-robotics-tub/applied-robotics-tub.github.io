@@ -25,7 +25,7 @@ lang: de
 
 # Adresse der fertigen Seite (nach dem ersten Veröffentlichen eintragen)
 # Beispiel GitHub Pages: url: "https://applied-robotics-tub.github.io"
-url: ""
+url: "https://applied-robotics-tub.github.io"
 baseurl: ""
 
 # ------------------------------------------------------------------
