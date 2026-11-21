@@ -48,5 +48,11 @@ umgehend.
 
 ## Bildrechte
 
-Alle Fotos: Mitglieder von Applied Robotics TU Berlin, sofern nicht
+Alle Fotos: Mitglieder von Applied Robotics TU Berlin, sofern hier nicht
 anders angegeben.
+
+Projektbild „Linienfolger": Celesta IITPatna,
+[Line Follower](https://commons.wikimedia.org/wiki/File:Line_Follower.jpg),
+Ausschnitt, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+Der hier gezeigte Ausschnitt steht unter derselben Lizenz. Das Bild zeigt
+nicht unseren eigenen Roboter.
