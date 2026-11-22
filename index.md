@@ -15,7 +15,6 @@ titel: "Start"
 titel_gross: "Wir bauen Roboter. Mitmachen kann jeder."
 einleitung: "Wir treffen uns regelmäßig und entwickeln zusammen robotische Systeme, für Anwendungen im Alltag und für spielerische Projekte. Was du dafür brauchst, lernst du bei uns am Projekt."
 knopf_mail: "Schreib uns eine Mail"
-link_mitmachen: "So läuft Mitmachen ab"
 
 # Kurzsteckbrief neben der Einleitung (Bezeichnung + Wert)
 steckbrief:
@@ -60,7 +59,7 @@ abgrenzung:
     - "Keine Einrichtung der TU Berlin, sondern eine Initiative von Studierenden."
 
 # Satz unter dem nächsten Termin
-treffen_hinweis: "Eine kurze Mail an uns reicht, dann sagen wir dir, wo du uns findest."
+treffen_hinweis: "Den genauen Ort nennen wir per Mail."
 treffen_link: "Mail schreiben"
 
 projekte:

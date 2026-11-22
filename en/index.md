@@ -14,7 +14,6 @@ beschreibung: "Student initiative in Berlin: we build and program robots for eve
 titel_gross: "We build robots. Anyone can join."
 einleitung: "We meet regularly and develop robotic systems together, for everyday applications and playful projects. Whatever you need for that, you learn with us, hands-on."
 knopf_mail: "Write us an email"
-link_mitmachen: "How joining works"
 
 steckbrief:
   - bezeichnung: "Status"
@@ -58,7 +57,7 @@ abgrenzung:
     - "Not a research lab. We build to learn."
     - "Not an institution of TU Berlin, but a student initiative."
 
-treffen_hinweis: "A short email is all it takes, and we'll tell you where to find us."
+treffen_hinweis: "We give the exact location by email."
 treffen_link: "Write an email"
 
 projekte:
