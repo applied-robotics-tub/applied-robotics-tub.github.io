@@ -8,7 +8,10 @@ layout: default
 {%- assign projekte = site.projekte | sort: "reihenfolge" -%}
 
 <section class="rahmen buehne" aria-labelledby="buehne-titel">
-  <h1 id="buehne-titel" class="anzeige">{{ page.titel_gross }}</h1>
+  <div class="buehne__kopf">
+    <h1 id="buehne-titel" class="anzeige">{{ page.titel_gross }}</h1>
+    <img class="buehne__zeichen" src="{{ '/assets/logo/logo.png' | relative_url }}" alt="" width="824" height="764">
+  </div>
   <div class="buehne__unten">
     <div class="buehne__text">
       <p class="einleitung">{{ page.einleitung }}</p>
