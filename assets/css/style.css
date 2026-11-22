@@ -136,17 +136,13 @@ a:hover { text-decoration-thickness: 4px; }
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 .anzeige--mittel { font-size: clamp(2.5rem, 6vw, 4rem); max-width: none; margin-bottom: 1rem; }
-.buehne__kopf { display: grid; gap: 1.5rem; justify-items: start; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.buehne__kopf { display: grid; gap: 1.75rem; justify-items: start; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
 .buehne__kopf .anzeige { margin-bottom: 0; }
-.buehne__zeichen { order: -1; height: clamp(5rem, 22vw, 7rem); width: auto; }
+.buehne__zeichen { order: -1; height: 4.5rem; width: auto; }
 
 .buehne__unten { display: grid; gap: 2.5rem; }
 @media (min-width: 56rem) {
-  .buehne__kopf {
-    grid-template-columns: 1fr auto; align-items: center;
-    gap: 3rem; justify-items: stretch;
-  }
-  .buehne__zeichen { order: 0; height: clamp(9rem, 17vw, 14rem); justify-self: end; }
+  .buehne__zeichen { height: 5.5rem; }
 
   .buehne__unten { grid-template-columns: repeat(12, 1fr); gap: 2rem; }
   .buehne__text { grid-column: 1 / 8; }
