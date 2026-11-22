@@ -7,9 +7,9 @@ Stand: umgesetzt am 08.11.2026.
 Die Seite ist eine Werkstattseite, keine Landingpage. Vorbilder sind das
 Datenblatt eines Bauteils und die Beschriftung an einer Industriemaschine:
 eine schmale Spalte mit Bezeichnungen links, Inhalte rechts davon,
-Haarlinien statt Kästen, eine einzige Signalfarbe. Robotergelb kennt man von
-Industrierobotern, Warnmarkierungen und Not-Halt-Gehäusen. Es ist die einzige
-Farbe auf der Seite, alles andere ist Graphit.
+Haarlinien statt Kästen, eine einzige Signalfarbe. Das Signalrot nimmt das
+Rot des Logos auf und kennt man von Not-Halt-Schaltern und Warnmarkierungen.
+Es ist die einzige Farbe auf der Seite, alles andere ist Graphit.
 
 Dunkel ist das Standard-Design. Hell bleibt als umschaltbare Variante.
 
@@ -22,12 +22,17 @@ Dunkel ist das Standard-Design. Hell bleibt als umschaltbare Variante.
 | Linie               | `#33322c`         | `#cfcdc3` | Haarlinien zwischen Zeilen und Abschnitten |
 | Text                | `#ebeae3`         | `#171611` | Fließtext und Überschriften |
 | Text leise          | `#a29f93`         | `#5a584e` | Bezeichnungen, Metadaten |
-| Signal (Akzent)     | `#f2c300`         | `#f2c300` | nur Primär-Knopf, Fokusrahmen, Linkunterstreichung, aktiver Menüpunkt |
+| Signal (Akzent)     | `#d62839`         | `#d62839` | nur Primär-Knopf, Fokusrahmen, Linkunterstreichung, aktiver Menüpunkt |
 | Platzhalter         | `#ff7a93`         | `#b0123a` | gestrichelte Markierung fehlender Inhalte (verschwindet mit den Inhalten) |
 
-Gelb wird nie als Textfarbe auf hellem Grund verwendet. Links sind
-textfarben mit gelber Unterstreichung, so funktionieren sie in beiden Modi.
-Text auf Gelb ist immer `#171611`.
+Das Signalrot nimmt das Rot des Logos auf, ist aber aufgehellt: Das
+Logo-Rot `#A90C18` hat auf dem dunklen Hintergrund nur 2,4:1 Kontrast und
+wäre als Unterstreichung kaum zu erkennen. `#d62839` kommt auf 3,7:1 gegen
+den Hintergrund und trägt weißen Text mit 5,0:1.
+
+Rot wird nie als Textfarbe verwendet. Links sind textfarben mit roter
+Unterstreichung, so funktionieren sie in beiden Modi. Text auf Rot ist
+immer Weiß.
 
 ## Schrift
 
@@ -104,7 +109,7 @@ Bei `prefers-reduced-motion` gar keine.
 
 Die drei generischsten Stellen nach dem ersten Durchgang und was geändert wurde:
 
-1. **Abschluss-Block „Vorbeikommen“ mit zweitem gelbem Knopf** am Ende der
+1. **Abschluss-Block „Vorbeikommen“ mit zweitem Signalknopf** am Ende der
    Startseite – das klassische Landingpage-Schlussbanner. Entfernt; der
    Mail-Link steht jetzt als Textlink direkt unter dem nächsten Termin, wo die
    Frage „wie komme ich hin?“ tatsächlich entsteht.

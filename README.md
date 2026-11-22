@@ -28,7 +28,7 @@ assets/js/seite.js    Farbschema, vergangene Termine ausblenden, Mail kopieren
 
 Seiteninhalte stehen im Front Matter bzw. Markdown-Teil der Seiten, die
 Layouts enthalten keine Texte. Fehlende Inhalte beginnen mit `PLATZHALTER`
-und werden automatisch gelb markiert (`_includes/text.html` für
+und werden automatisch rosa markiert (`_includes/text.html` für
 Datenfelder, `{: .platzhalter}` für Absätze in Markdown).
 
 ## Veröffentlichen

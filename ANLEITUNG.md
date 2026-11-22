@@ -87,7 +87,7 @@ und die Person einverstanden ist, dass ihr Name online steht.
 
 ## Platzhalter
 
-Alles, was noch fehlt, ist auf der Seite **gelb hinterlegt** und beginnt mit
+Alles, was noch fehlt, ist auf der Seite **rosa hinterlegt** und beginnt mit
 `PLATZHALTER`. In Fließtexten steht darunter die Zeile `{: .platzhalter}` –
 die beim Ausfüllen mit löschen.
 

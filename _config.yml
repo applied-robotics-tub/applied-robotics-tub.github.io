@@ -50,6 +50,7 @@ kramdown:
 
 exclude:
   - README.md
+  - assets/bilder/vorschau-quelle.html
   - ANLEITUNG.md
   - DESIGN.md
   - SOCIAL-MEDIA.md
