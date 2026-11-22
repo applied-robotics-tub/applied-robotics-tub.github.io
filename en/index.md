@@ -11,8 +11,8 @@ lang: en
 titel: "Home"
 beschreibung: "Student initiative in Berlin: we build and program robots for everyday life together. Open to everyone, no prior experience needed."
 
-titel_gross: "An open robotics group for students in Berlin"
-einleitung: "We meet regularly to build and program robotic systems together, for everyday applications and playful projects. Whatever you need for that, you learn with us, hands-on."
+titel_gross: "We build robots. Anyone can join."
+einleitung: "We meet regularly and develop robotic systems together, for everyday applications and playful projects. Whatever you need for that, you learn with us, hands-on."
 knopf_mail: "Write us an email"
 link_mitmachen: "How joining works"
 

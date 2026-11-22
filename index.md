@@ -12,8 +12,8 @@ ref: start
 lang: de
 titel: "Start"
 
-titel_gross: "Eine offene Robotik-Gruppe für Studierende in Berlin"
-einleitung: "Wir treffen uns regelmäßig und bauen und programmieren zusammen robotische Systeme, für Anwendungen im Alltag und für spielerische Projekte. Was du dafür brauchst, lernst du bei uns am Projekt."
+titel_gross: "Wir bauen Roboter. Mitmachen kann jeder."
+einleitung: "Wir treffen uns regelmäßig und entwickeln zusammen robotische Systeme, für Anwendungen im Alltag und für spielerische Projekte. Was du dafür brauchst, lernst du bei uns am Projekt."
 knopf_mail: "Schreib uns eine Mail"
 link_mitmachen: "So läuft Mitmachen ab"
 
